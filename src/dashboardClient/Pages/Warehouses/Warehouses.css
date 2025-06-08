@@ -1,0 +1,155 @@
+.warehouses-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--background-light);
+  min-height: calc(100vh - 60px);
+}
+
+.warehouses-container h1 {
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.warehouses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+
+.warehouse-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.2s ease;
+  border: 1px solid var(--hover-color);
+}
+
+.warehouse-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.warehouse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--hover-color);
+}
+
+.warehouse-header h2 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.country-flag {
+  font-size: 24px;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+}
+
+.warehouse-card:hover .country-flag {
+  transform: scale(1.1);
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.field-value {
+  color: var(--text-primary);
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Country-specific styles */
+.warehouse-card.usa {
+  border-left: 4px solid #002868;
+}
+
+.warehouse-card.turkey {
+  border-left: 4px solid #e30a17;
+}
+
+.warehouse-card.china {
+  border-left: 4px solid #de2910;
+}
+
+.warehouse-card.japan {
+  border-left: 4px solid #bc002d;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .warehouses-container {
+    padding: 20px;
+  }
+
+  .warehouses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .warehouse-card {
+    padding: 20px;
+  }
+
+  .warehouse-header h2 {
+    font-size: 18px;
+  }
+}
+
+.copyable {
+  transition: all 0.2s ease;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.copyable:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.copy-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: fadeInOut 2s ease;
+  z-index: 1000;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  15% { opacity: 1; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}

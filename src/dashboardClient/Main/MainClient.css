@@ -1,0 +1,84 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #2196f3;
+  --accent-color: #e74c3c;
+  --background-light: #f8f9fa;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-background: #ffffff;
+  --hover-color: #f1f5f9;
+}
+
+.dashboard-client-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-light);
+  padding-top: 60px; /* Высота навбара */
+  color: var(--text-primary);
+}
+
+.dashboard-client-content {
+  flex: 1;
+  margin-left: 250px; /* Ширина боковой панели */
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .dashboard-client-layout {
+    padding-top: 120px; /* Увеличенная высота для мобильного навбара */
+  }
+
+  .dashboard-client-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .dashboard-card {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}

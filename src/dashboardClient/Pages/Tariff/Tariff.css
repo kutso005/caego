@@ -1,0 +1,114 @@
+.tariff-page {
+  padding: 30px;
+  background: var(--background-light);
+  min-height: calc(100vh - 60px);
+}
+
+.tariff-page h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.tariff-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tariff-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--card-background);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.tariff-row:hover {
+  box-shadow: 0 6px 12px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+.tariff-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tariff-group label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tariff-group input {
+  padding: 10px 14px;
+  border: 1px solid var(--hover-color);
+  border-radius: 8px;
+  background: var(--card-background);
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.tariff-group input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  outline: none;
+}
+
+.tariff-group input:disabled {
+  background-color: var(--hover-color);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.tariff-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--hover-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.tariff-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.tariff-badge.promo {
+  background: #e6f4ea;
+  color: #34a853;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tariff-page {
+    padding: 20px;
+  }
+
+  .tariff-row {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .tariff-group {
+    width: 100%;
+  }
+
+  .tariff-group input {
+    width: 100%;
+  }
+}

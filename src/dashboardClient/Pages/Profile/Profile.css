@@ -1,0 +1,253 @@
+.client-profile {
+  padding: 30px;
+  background-color: var(--background-light);
+  min-height: calc(100vh - 60px);
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  margin-bottom: 30px;
+}
+
+.profile-header h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.profile-form {
+  background: var(--card-background);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  max-width: 600px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--hover-color);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: var(--card-background);
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.form-group input:disabled {
+  background-color: var(--hover-color);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.form-group input.confirmed {
+  background-color: #e6f4ea;
+  border-color: #34a853;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.edit-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--hover-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.edit-button.save {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.edit-button.save:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.edit-button.cancel {
+  background-color: var(--hover-color);
+  color: var(--text-primary);
+}
+
+.edit-button.cancel:hover {
+  background-color: #e2e8f0;
+}
+
+.phone-confirmed {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: #34a853;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 20px;
+}
+
+.tab {
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #666;
+}
+
+.tab.active {
+  color: #2196f3;
+  border-bottom: 2px solid #2196f3;
+  background-color: #e3f2fd;
+}
+
+.profile-content {
+  padding: 20px;
+}
+
+.profile-content h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+.tariff-content {
+  padding: 20px;
+}
+
+.tariff-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tariff-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.tariff-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tariff-group label {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.tariff-group input {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+}
+
+.tariff-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #e9ecef;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.tariff-badge.promo {
+  background: #cff4fc;
+  color: #055160;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .client-profile {
+    padding: 20px;
+  }
+
+  .profile-form {
+    padding: 20px;
+  }
+
+  .input-group {
+    flex-wrap: wrap;
+  }
+
+  .form-group input {
+    width: 100%;
+  }
+
+  .form-actions {
+    flex-wrap: wrap;
+  }
+
+  .edit-button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .profile-tabs {
+    padding: 0 15px;
+  }
+
+  .tab {
+    padding: 12px 15px;
+  }
+
+  .profile-content {
+    padding: 15px;
+  }
+}

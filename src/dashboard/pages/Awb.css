@@ -1,0 +1,84 @@
+.awb-header {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.awb-filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.awb-filters input,
+.awb-filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.btn-table {
+  background-color: #e8f5e9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-clear {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.awb-table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.awb-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.awb-table th,
+.awb-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.awb-table th {
+  font-weight: 600;
+  color: #333;
+}
+
+.country-flag {
+  width: 20px;
+  height: 15px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.btn-edit {
+  background-color: #f0f7ff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #0066cc;
+}
+
+.btn-edit:hover {
+  background-color: #e6f0ff;
+}

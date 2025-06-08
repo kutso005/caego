@@ -1,0 +1,222 @@
+.table-container {
+  overflow-y: auto !important;
+  background: white;
+  position: relative;
+  border-radius: 8px;
+  min-height: 530px;
+  max-height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  font-size: 16px;
+}
+
+.edit-btn:hover {
+  background-color: #e3f2fd;
+}
+
+.delete-btn:hover {
+  background-color: #ffebee;
+}
+
+.country-flag {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+.bulk-actions {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bulk-action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.bulk-action-btn:hover {
+  background-color: #0056b3;
+}
+
+.bulk-action-btn.delete {
+  background-color: #dc3545;
+}
+
+.bulk-action-btn.delete:hover {
+  background-color: #c82333;
+}
+
+.selected-count {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.bulk-status-btn,
+.bulk-delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.bulk-status-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.bulk-status-btn:hover {
+  background-color: #1976d2;
+}
+
+.bulk-delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.bulk-delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+.bulk-status-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.flight-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.flight-dropdown-container .status-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.flight-dropdown-container .status-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.flight-dropdown-container .status-option:hover {
+  background-color: #f5f5f5;
+}
+
+.flight-dropdowns {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.year-dropdown {
+  width: 100px;
+  border-right: 1px solid #eee;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.number-dropdown {
+  width: 80px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.year-option,
+.number-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.year-option:hover,
+.number-option:hover {
+  background-color: #f5f5f5;
+}
+
+.year-option.selected {
+  background-color: #e3f2fd;
+  font-weight: bold;
+}
+
+.number-option {
+  text-align: center;
+}
+
+

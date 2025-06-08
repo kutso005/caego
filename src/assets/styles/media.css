@@ -1,0 +1,60 @@
+@media(max-width:790px){
+   
+    .air-text p{
+        font-size: 25px;
+    }
+    .air-text{
+        width: 90%;
+        top: 30%;
+    }
+    .about-us-title .title{
+        margin-bottom: 0;
+        font-size: 25px;
+    }
+    .service-info h2{
+        font-size: 25px;
+    }
+    .service-info{
+        padding: 0;
+    }
+    .why-us-text{
+        width: 100%;
+    }
+    .subtitle{
+        margin-top: 20px;
+    }
+    .how-work-steps{
+        grid-template-columns: 1fr;
+    }
+    .why-us-form{
+        width: 100%;
+    }
+    .about-us-image{
+        margin-bottom: 0;
+    }
+    .why-us-content{
+        flex-direction: column;
+    }
+    .accordion-header{
+        font-size: 16px;
+    }
+    .services-grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .fone{
+        max-width: none;
+        min-width: 100%;
+        max-height:430px;
+        min-height: 430px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .email-input-group{
+        flex-direction: column;
+    }
+    .confirm-email-button{
+        width: 100%;
+    }
+   
+}

@@ -1,0 +1,144 @@
+.calculator {
+  padding: 60px 0;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.calculator__container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.calculator__title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.calculator__title h1 {
+  font-size: 36px;
+  color: #121212;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.calculator__title p {
+  color: #666;
+  font-size: 18px;
+}
+
+.calculator__info {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  border-left: 4px solid #30a0b6;
+}
+
+.calculator__info p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.calculator__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.calculator__input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.calculator__input-group input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.calculator__input-group input:focus {
+  border-color: #30a0b6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(48, 160, 182, 0.1);
+}
+
+.calculator__input-group label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 5px;
+  color: #718096;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.calculator__input-group input:focus + label,
+.calculator__input-group input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 14px;
+  color: #30a0b6;
+}
+
+.calculator__button {
+  grid-column: 1 / -1;
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.calculator__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(48, 160, 182, 0.2);
+}
+
+.calculator__button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .calculator__container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .calculator__form {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator__title h1 {
+    font-size: 28px;
+  }
+
+  .calculator__title p {
+    font-size: 16px;
+  }
+}
+
+.calculator__result-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #30a0b6;
+  text-align: center;
+  width: 100%;
+  display: inline-flex;
+}
