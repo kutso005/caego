@@ -351,19 +351,30 @@ const EditParcel = () => {
       }
 
       const formData = new FormData();
-      // Добавляем основные данные как JSON строку
-      formData.append('data', JSON.stringify(requestData));
+      
+      // Add all data fields individually to FormData
+      Object.keys(requestData).forEach(key => {
+        if (key === 'package_details' || key === 'package_weights') {
+          formData.append(key, JSON.stringify(requestData[key]));
+        } else if (key === 'reys') {
+          formData.append(key, JSON.stringify(requestData[key]));
+        } else {
+          formData.append(key, requestData[key]);
+        }
+      });
 
-      // Добавляем файлы
-      const packageImageFile = await prepareFileForUpload(packageImages.package_image);
-      const labelImageFile = await prepareFileForUpload(packageImages.label_image);
-      const invoiceImageFile = await prepareFileForUpload(packageImages.invoice_image);
+      // Add files
+      if (packageImages.package_image instanceof File) {
+        formData.append("package_image", packageImages.package_image);
+      }
+      if (packageImages.label_image instanceof File) {
+        formData.append("label_image", packageImages.label_image);
+      }
+      if (packageImages.invoice_image instanceof File) {
+        formData.append("invoice_image", packageImages.invoice_image);
+      }
 
-      if (packageImageFile) formData.append("package_image", packageImageFile);
-      if (labelImageFile) formData.append("label_image", labelImageFile);
-      if (invoiceImageFile) formData.append("invoice_image", invoiceImageFile);
-
-      // Добавляем дополнительные фотографии
+      // Add additional photos
       photos.forEach((photo) => {
         if (photo instanceof File) {
           formData.append('package_images', photo);
@@ -374,7 +385,6 @@ const EditParcel = () => {
         method: "PUT",
         headers: {
           'Authorization': `Bearer ${token}`,
-          // Не указываем Content-Type, браузер сам установит правильный с boundary для FormData
         },
         body: formData,
       });
