@@ -140,6 +140,11 @@ export default function AddParcel() {
 
   const [trackingNumberError, setTrackingNumberError] = useState("");
 
+  const [clientTariff, setClientTariff] = useState({
+    usa: 11,
+    china: 2.8
+  });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -477,7 +482,7 @@ export default function AddParcel() {
           };
           if (newRow.quantity && newRow.physicalWeight) {
             const qty = Number(newRow.quantity);
-            const weight = Number(newRow.physicalWeight);
+            const weight = parseFloat(newRow.physicalWeight) || 0;
             newRow.total = qty * weight;
           } else {
             newRow.total = 0;
@@ -517,7 +522,7 @@ export default function AddParcel() {
   const handleDeliveryCostChange = () => {
     if (!isManualCost) {
       const totalWeight = calculateTotalPackageWeight();
-      const rate = deliveryRates[warehouse] || 0;
+      const rate = warehouse === "США" ? clientTariff.usa : clientTariff.china;
       const calculatedCost = (totalWeight * rate).toFixed(2);
       setTotalDeliveryCost(calculatedCost);
     }
@@ -536,7 +541,7 @@ export default function AddParcel() {
     if (!isManualCost) {
       handleDeliveryCostChange();
     }
-  }, [warehouse, packageRows, isManualCost]);
+  }, [warehouse, packageRows, isManualCost, clientTariff]);
 
   const handleProductSelection = (index, productId) => {
     try {
@@ -668,6 +673,12 @@ export default function AddParcel() {
                   (c) => c.id === Number(e.target.value)
                 );
                 setClient(selectedClient);
+                if (selectedClient) {
+                  setClientTariff({
+                    usa: selectedClient.tarif_usa_value || 11,
+                    china: selectedClient.tarif_china_value || 2.8
+                  });
+                }
               }}
             >
               <option value="default">Выберите клиента</option>
@@ -939,7 +950,7 @@ export default function AddParcel() {
                           handlePackageRowChange(
                             row.id,
                             "physicalWeight",
-                            Math.max(0, Number(row.physicalWeight) - 1)
+                            Math.max(0, (parseFloat(row.physicalWeight) || 0) - 0.1).toFixed(1)
                           )
                         }
                       >
@@ -948,13 +959,13 @@ export default function AddParcel() {
                       <input
                         type="text"
                         value={row.physicalWeight}
-                        onChange={(e) =>
-                          handlePackageRowChange(
-                            row.id,
-                            "physicalWeight",
-                            e.target.value
-                          )
-                        }
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          // Allow decimal numbers with up to 1 decimal place
+                          if (/^\d*\.?\d{0,1}$/.test(value) || value === '') {
+                            handlePackageRowChange(row.id, "physicalWeight", value);
+                          }
+                        }}
                         placeholder="Введите вес"
                       />
                       <button
@@ -963,7 +974,7 @@ export default function AddParcel() {
                           handlePackageRowChange(
                             row.id,
                             "physicalWeight",
-                            Number(row.physicalWeight) + 1
+                            ((parseFloat(row.physicalWeight) || 0) + 0.1).toFixed(1)
                           )
                         }
                       >
