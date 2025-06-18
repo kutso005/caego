@@ -265,7 +265,7 @@ const ParcelsTable = ({
                   />
                 </td>
                 <td>{parcel.weight_of_package}</td>
-                <td>{parcel.amount}</td>
+                <td>{parcel.delivery_cost}</td>
                 <td>{new Date(parcel.created_at).toLocaleString()}</td>
                 <td className="actions-cell">
                   <button
