@@ -353,7 +353,6 @@ const EditParcel = () => {
 
       const formData = new FormData();
       
-      // Add all data fields individually to FormData
       Object.keys(requestData).forEach(key => {
         if (requestData[key] === undefined) return;
         if (key === 'package_details' || key === 'package_weights') {
@@ -361,9 +360,6 @@ const EditParcel = () => {
         } else if (key === 'reys') {
           formData.append(key, JSON.stringify(requestData[key]));
         } else if (key === 'recipient' && requestData[key] === null) {
-          // Если recipient null, можно не добавлять или явно добавить null, если сервер требует
-          // formData.append(key, "null"); // если сервер требует строку "null"
-          // иначе просто не добавлять
         } else {
           formData.append(key, requestData[key]);
         }
@@ -484,25 +480,19 @@ const EditParcel = () => {
 
   const handleDeliveryCostChange = (value) => {
     if (!isManualCost) {
-      const firstRow = packageRows[0];
-      let weightToUse = Number(firstRow?.physicalWeight || 0);
-
-      if (
-        firstRow?.showDimensions &&
-        firstRow.dimensions.length &&
-        firstRow.dimensions.width &&
-        firstRow.dimensions.height
-      ) {
-        const volumeWeight =
-          (Number(firstRow.dimensions.length) *
-            Number(firstRow.dimensions.width) *
-            Number(firstRow.dimensions.height)) /
-          6000;
-        weightToUse = Math.max(weightToUse, volumeWeight);
+      const totalWeight = calculateTotalPackageWeight();
+      let rate = 0;
+      if (client) {
+        if (warehouse === "США") {
+          rate = client.tarif_usa_value || 9.5;
+        } else if (warehouse === "Китай") {
+          rate = client.tarif_china_value || 2.8;
+        }
+      } else {
+        // fallback default
+        rate = warehouse === "США" ? 9.5 : 2.8;
       }
-
-      const calculatedCost = (weightToUse * 3.39999999).toFixed(1);
-      setTotalDeliveryCost(calculatedCost);
+      setTotalDeliveryCost((totalWeight * rate).toFixed(2));
     } else {
       setTotalDeliveryCost(value);
     }
@@ -521,7 +511,7 @@ const EditParcel = () => {
     if (!isManualCost) {
       handleDeliveryCostChange();
     }
-  }, [packageRows]);
+  }, [warehouse, packageRows, isManualCost, client]);
 
   const prepareFileForUpload = async (file) => {
     if (!file) return null;
