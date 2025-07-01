@@ -322,7 +322,6 @@ const EditParcel = () => {
 
       const requestData = {
         client: client?.id || 0,
-        recipient: recipient?.id,
         status: status || "Проверяется",
         warehouse: warehouse || "США",
         type_of_packaging: packageType || "Пакет",
@@ -340,6 +339,8 @@ const EditParcel = () => {
         package_weights: packageWeightsData,
       };
 
+      requestData.recipient = recipient?.id ?? null;
+
       if (selectedYear && selectedFlight) {
         requestData.reys = {
           id: 17,
@@ -354,10 +355,15 @@ const EditParcel = () => {
       
       // Add all data fields individually to FormData
       Object.keys(requestData).forEach(key => {
+        if (requestData[key] === undefined) return;
         if (key === 'package_details' || key === 'package_weights') {
           formData.append(key, JSON.stringify(requestData[key]));
         } else if (key === 'reys') {
           formData.append(key, JSON.stringify(requestData[key]));
+        } else if (key === 'recipient' && requestData[key] === null) {
+          // Если recipient null, можно не добавлять или явно добавить null, если сервер требует
+          // formData.append(key, "null"); // если сервер требует строку "null"
+          // иначе просто не добавлять
         } else {
           formData.append(key, requestData[key]);
         }
